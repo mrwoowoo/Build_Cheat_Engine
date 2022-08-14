@@ -18,14 +18,14 @@ jobs:
         lazarus-version: "2.0.10"
         with-cache: false
         
-    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 32-Bit"
     - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit"
     
     - uses: microsoft/setup-msbuild@v1.1
       with:
         vs-version: '16.4'
+        msbuild-architecture: x64
 
-    - run: msbuild /t:clean /t:build DBKKernel\DBKKernel.vcxproj /p:Configuration="Release without sig" /p:Platform=x64 /p:PostBuildEventUseInBuild=false
+    - run: msbuild /t:build DBKKernel\DBKKernel.vcxproj /p:Configuration="Release without sig" /p:Platform=x64 /p:PostBuildEventUseInBuild=false
     
     - uses: actions/upload-artifact@main
       with:
