@@ -18,5 +18,7 @@ jobs:
       - name: Run a one-line script
         run: cd dbvm && make release
 
-      - name: Run a multi-line script
-        run: ls -l dbvm
+      - uses: actions/upload-artifact@main
+        with:
+          name: ${{ github.job }}
+          path: dbvm\release
