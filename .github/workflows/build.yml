@@ -9,25 +9,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        repository: cheat-engine/cheat-engine
-        ref: '7.4'
         
+    - run: git clone -b 7.4 https://github.com/cheat-engine/cheat-engine
+    
+    - run: cp cheatengine cheat-engine/Cheat Engine/cheatengine.lpi
+    
     - uses: gcarreno/setup-lazarus@v3.2
       with:
         lazarus-version: "2.0.10"
         with-cache: false
         
-    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit"
+    - run: lazbuild -B "cheat-engine/Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit"
     
     - uses: microsoft/setup-msbuild@v1.1
       with:
         vs-version: '16.4'
         msbuild-architecture: x64
 
-    - run: msbuild /t:build DBKKernel\DBKKernel.vcxproj /p:Configuration="Release without sig" /p:Platform=x64 /p:PostBuildEventUseInBuild=false
+    - run: msbuild /t:build cheat-engine\DBKKernel\DBKKernel.vcxproj /p:Configuration="Release without sig" /p:Platform=x64 /p:PostBuildEventUseInBuild=false
     
     - uses: actions/upload-artifact@main
       with:
         name: ${{ github.job }}
-        path: Cheat Engine\bin
+        path: cheat-engine\Cheat Engine\bin
