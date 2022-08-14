@@ -18,7 +18,8 @@ jobs:
         lazarus-version: "2.0.10"
         with-cache: false
         
-    - run:  lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit" && lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release"
+    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 32-Bit"
+    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit"
     
     - uses: microsoft/setup-msbuild@v1.1
       with:
