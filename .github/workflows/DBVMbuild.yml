@@ -16,7 +16,7 @@ jobs:
       - run: sudo apt-get install -y yasm nasm
       
       - name: Run a one-line script
-        run: cd dbvm && make
+        run: cd dbvm && make release
 
       - name: Run a multi-line script
         run: ls -l dbvm
