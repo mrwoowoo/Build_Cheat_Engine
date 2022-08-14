@@ -17,11 +17,11 @@ jobs:
       with:
         lazarus-version: "2.0.10"
         
-    - run:  lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
+    - run:  lazbuild -B "Cheat Engine/cheatengine.lpi" --build-mode="Release 64-Bit"
     
     - uses: microsoft/setup-msbuild@v1.0.2
 
-    - run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+    - run: msbuild /t:clean /t:build DBKKernel\DBKKernel.vcxproj /p:Configuration="Release without sig" /p:Platform=x64 /p:PostBuildEventUseInBuild=false
     
     - uses: actions/upload-artifact@main
       with:
