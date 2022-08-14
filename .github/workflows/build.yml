@@ -12,7 +12,9 @@ jobs:
         
     - run: git clone -b 7.4 https://github.com/cheat-engine/cheat-engine
     
-    - run: cp cheatengine.lpi "cheat-engine/Cheat Engine/cheatengine.lpi"
+    - run: | 
+        cp cheatengine.lpi "cheat-engine/Cheat Engine/cheatengine.lpi"
+        cp cheat-engine\Cheat Engine\Images.res cheat-engine\Cheat Engine\Images_alt.res
     
     - uses: gcarreno/setup-lazarus@v3.2
       with:
