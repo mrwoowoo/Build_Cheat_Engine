@@ -15,9 +15,7 @@ jobs:
         
     - uses: gcarreno/setup-lazarus@v3.2
       with:
-        lazarus-version: "dist"
-        include-packages: "Synapse 40.1"
-        with-cache: true
+        lazarus-version: "2.0.10"
         
     - run:  lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
     
