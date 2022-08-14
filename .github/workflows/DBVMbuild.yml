@@ -21,4 +21,4 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: ${{ github.job }}
-          path: dbvm\dbvm.rar
+          path: dbvm/release
