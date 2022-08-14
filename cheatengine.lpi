@@ -83,12 +83,12 @@
               <IgnoredMessages idx6058="True" idx5066="True" idx5043="True" idx4105="True" idx4104="True" idx3177="True" idx3175="True" idx2005="True"/>
             </CompilerMessages>
             <CustomOptions Value="-WB00400000
+-daltname
 -dbenchmarkps
 -dcemain
 -dNDEBUG
 -dDBVMFORAMDISWORKING
--dNESTEDSTRUCTURES"
--daltname/>
+-dNESTEDSTRUCTURES"/>
             <OtherDefines Count="14">
               <Define0 Value="NOTMULTITHREADED"/>
               <Define1 Value="benchmarkps"/>
