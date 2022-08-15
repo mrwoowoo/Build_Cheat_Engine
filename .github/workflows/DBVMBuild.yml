@@ -1,4 +1,4 @@
-name: DBVMbuild
+name: DBVMBuild
 
 on:
   workflow_dispatch:
@@ -14,9 +14,8 @@ jobs:
           ref: '7.4'
           
       - run: sudo apt-get install -y yasm nasm mkisofs rar
-      
-      - name: Run a one-line script
-        run: cd dbvm && make release
+
+      - run: cd dbvm && make release
 
       - uses: actions/upload-artifact@main
         with:
