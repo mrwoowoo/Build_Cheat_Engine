@@ -19,5 +19,5 @@ jobs:
 
       - uses: actions/upload-artifact@main
         with:
-          name: ${{ github.job }}
+          name: vmdisk
           path: dbvm/release/vmdisk.img
