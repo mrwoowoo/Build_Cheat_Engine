@@ -22,5 +22,5 @@ jobs:
     
     - uses: actions/upload-artifact@main
       with:
-        name: ${{ github.job }}
+        name: DBK64
         path: Cheat Engine\bin\DBK64.sys
