@@ -1,0 +1,25 @@
+name: CheatEngine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: cheat-engine/cheat-engine
+        ref: '7.4'
+
+    - uses: gcarreno/setup-lazarus@master
+      with:
+        lazarus-version: "2.0.10"
+    
+    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit"
+    
+    - uses: actions/upload-artifact@main
+      with:
+        name: CheatEngine
+        path: Cheat Engine\bin\
